@@ -1,8 +1,10 @@
-import axios from 'axios'
+import axios, { AxiosError } from 'axios'
 
 export default axios.create({
-	baseURL: 'https://api.rawg.io/api',
+	baseURL: import.meta.env.VITE_REACT_APP_API_URL,
 	params: {
-		key: 'eb04f43d274d4df39c9af2eb92acfd7f',
+		key: import.meta.env.VITE_REACT_APP_API_KEY,
 	},
 })
+
+export { AxiosError }
