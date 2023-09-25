@@ -1,6 +1,5 @@
 import { Grid, GridItem, Show } from '@chakra-ui/react'
-import GameGrid from './components/GameGrid'
-import Header from './components/Header'
+import { GameGrid, Header } from './components'
 
 const App = () => {
 	return (
