@@ -7,4 +7,4 @@ export default axios.create({
 	},
 })
 
-export { AxiosError }
+export { AxiosError as CanceledError }
