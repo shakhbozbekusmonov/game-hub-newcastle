@@ -5,13 +5,13 @@ import PlatformIconList from './PlatformIconList'
 
 const GameCard = ({ game }) => {
 	return (
-		<Card>
+		<Card height='100%'>
 			<Image
 				src={getCroppedImage(game.background_image)}
 				alt={game.name}
 			/>
 			<CardBody>
-				<HStack justifyContent='space-between'>
+				<HStack justifyContent='space-between' marginBottom={3}>
 					<PlatformIconList
 						platforms={game.parent_platforms.map(p => p.platform)}
 					/>
