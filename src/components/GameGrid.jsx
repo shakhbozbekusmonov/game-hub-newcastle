@@ -1,16 +1,18 @@
 import { SimpleGrid, Text } from '@chakra-ui/react'
 import useGames from '../hooks/useGames'
+import FilterPlatform from './FilterPlatform'
 import GameCard from './GameCard'
 import GameCardContainer from './GameCardContainer'
 import GameCardSkeleton from './GameCardSkeleton'
 
-const GameGrid = ({ selectedGenre }) => {
-	const { data, error, isLoading } = useGames(selectedGenre)
+const GameGrid = ({ gameQuery, setGameQuery }) => {
+	const { data, error, isLoading } = useGames(gameQuery)
 	const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 
 	return (
 		<>
 			{error && <Text color='red.500'>{error}</Text>}
+			<FilterPlatform setGameQuery={setGameQuery} gameQuery={gameQuery} />
 			<SimpleGrid
 				columns={{
 					sm: 1,

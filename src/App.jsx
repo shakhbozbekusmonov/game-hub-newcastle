@@ -4,7 +4,7 @@ import { GameGrid, Header } from './components'
 import GenreList from './components/GenreList'
 
 const App = () => {
-	const [selectedGenre, setSelectedGenre] = useState('')
+	const [gameQuery, setGameQuery] = useState({ genre: '', platform: '' })
 
 	return (
 		<Grid
@@ -22,13 +22,20 @@ const App = () => {
 			<Show above='lg'>
 				<GridItem area='aside' paddingX={6}>
 					<GenreList
-						selectedGenre={selectedGenre}
-						onSelectedGenre={genre => setSelectedGenre(genre)}
+						gameQuery={gameQuery}
+						setGameQuery={genre =>
+							setGameQuery({ ...gameQuery, genre })
+						}
 					/>
 				</GridItem>
 			</Show>
 			<GridItem area='main'>
-				<GameGrid selectedGenre={selectedGenre} />
+				<GameGrid
+					gameQuery={gameQuery}
+					setGameQuery={platform =>
+						setGameQuery({ ...gameQuery, platform })
+					}
+				/>
 			</GridItem>
 		</Grid>
 	)
